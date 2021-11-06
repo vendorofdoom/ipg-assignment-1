@@ -8,7 +8,7 @@ public class Removable : Interactable
     public string itemToTidy;
     public override string GetDescription()
     {
-        return "Press [E] to tidy up the " + itemToTidy;
+        return "Click to tidy up the " + itemToTidy;
     }
     
     public override void Interact()

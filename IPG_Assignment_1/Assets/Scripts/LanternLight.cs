@@ -20,10 +20,10 @@ public class LanternLight : Interactable
     {
         if (SwitchedOn)
         {
-            return "Press [E] to blow out the lantern";
+            return "Click to blow out the lantern";
         } else
         {
-            return "Press [E] to light the lantern";
+            return "Click to light the lantern";
         }
         
     }

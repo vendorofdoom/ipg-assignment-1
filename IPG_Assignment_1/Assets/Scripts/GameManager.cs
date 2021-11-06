@@ -1,4 +1,5 @@
 using UnityEngine;
+using StarterAssets;
 
 // Brackeys tutorial: https://youtu.be/VbZ9_C4-Qbo
 
@@ -10,7 +11,14 @@ public class GameManager : MonoBehaviour
     public float resetDelay= 1f;
     public bool resetPlayer = false;
 
-    public void ResetPlayer()
+    private InputManager input;
+
+    private void Start()
+    {
+        input = Player.GetComponent<InputManager>();
+    }
+
+        public void ResetPlayer()
     {
         if (resetPlayer == false)
         {
@@ -25,8 +33,11 @@ public class GameManager : MonoBehaviour
     public void ResetPlayerPosition()
     {
         Player.transform.position = new Vector3(0f, 0f, 0f);
-        Player.SetActive(true);
+        input.move = new Vector2(0f, 0f); // stop movement
+
         resetPlayer = false;
+        Player.SetActive(true);
+        
         Text.fontSize = 12f;
         Text.text = "";
     }

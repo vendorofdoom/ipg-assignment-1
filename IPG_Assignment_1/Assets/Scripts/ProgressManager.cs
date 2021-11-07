@@ -8,6 +8,9 @@ public class ProgressManager : MonoBehaviour
     private int tasksCount;
     private Task[] tasks;
 
+    [SerializeField]
+    private float progress = 0f;
+
     private void Awake()
     {
         tasksCompleted = 0;
@@ -15,8 +18,10 @@ public class ProgressManager : MonoBehaviour
         tasksCount = tasks.Length;
     }
 
-    private void updateCompletedTasks()
+
+    private void CalcProgress()
     {
+
         tasksCompleted = 0;
         foreach (Task task in tasks)
         {
@@ -25,30 +30,23 @@ public class ProgressManager : MonoBehaviour
                 tasksCompleted += 1;
             }
         }
-    }
-
-    private float GetProgress()
-    {
-
-        updateCompletedTasks();
-
 
         if (tasksCount == 0)
         {
-            return 0f;
+            progress = 0f;
         }
 
         if (tasksCount == tasksCompleted) {
-            return 1f;
+            progress = 1f;
         }
 
-        return (float)tasksCompleted / (float)tasksCount;
+        progress = (float)tasksCompleted / (float)tasksCount;
         
     }
 
     private void Update()
     {
-        //Debug.Log(GetProgress().ToString());
+        CalcProgress();
     }
 
 

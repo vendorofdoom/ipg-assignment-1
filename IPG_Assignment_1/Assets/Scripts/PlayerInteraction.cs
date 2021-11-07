@@ -10,27 +10,27 @@ public class PlayerInteraction : MonoBehaviour
     public TMPro.TextMeshProUGUI Text;
     public Camera cam;
 
-    private InputManager inputManager;
+    public InputManager inputManager;
 
     private Interactable interactable;
     private bool successfulHit = false;
 
 
-    private void Awake()
-    {
-        inputManager = GetComponent<InputManager>();
-    }
+    //private void Awake()
+    //{
+    //    inputManager = GetComponent<InputManager>();
+    //}
 
     private void OnEnable()
     {
-        inputManager.OnStartInteract += StartInteract;
-        inputManager.OnEndInteract += EndInteract;
+        inputManager.playerControls.Player.Interact.started += StartInteract;
+        inputManager.playerControls.Player.Interact.canceled += EndInteract;
     }
 
     private void OnDisable()
     {
-        inputManager.OnStartInteract -= StartInteract;
-        inputManager.OnEndInteract -= EndInteract;
+        inputManager.playerControls.Player.Interact.started -= StartInteract;
+        inputManager.playerControls.Player.Interact.canceled -= EndInteract;
     }
 
     private void Update()
@@ -58,12 +58,12 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private void StartInteract(float time)
+    private void StartInteract(InputAction.CallbackContext context)
     {
         // leaving this here in case I want to implement some kind of press and hold functionality
     }
 
-    private void EndInteract(float time)
+    private void EndInteract(InputAction.CallbackContext context)
     {
         if (successfulHit && interactable != null)
         {

@@ -20,10 +20,10 @@ public class LanternLight : Interactable
     {
         if (SwitchedOn)
         {
-            return "Click to blow out the lantern";
+            return "Press [E] to blow out the lantern";
         } else
         {
-            return "Click to light the lantern";
+            return "Press [E] to light the lantern";
         }
         
     }
@@ -40,6 +40,8 @@ public class LanternLight : Interactable
         {
             MeshRenderer.material = OffMat;
         }
+
+        gameObject.GetComponent<Task>().isComplete = SwitchedOn;
     }
 
 }

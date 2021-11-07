@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b9cbcfe2397a8f449e9db88fd7a0ed4, type: 2}
+  - {fileID: 2100000, guid: 9e8c40486ff08c1478f41d3700e72dba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,7 +190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b9cbcfe2397a8f449e9db88fd7a0ed4, type: 2}
+  - {fileID: 2100000, guid: 9e8c40486ff08c1478f41d3700e72dba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,7 +285,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b9cbcfe2397a8f449e9db88fd7a0ed4, type: 2}
+  - {fileID: 2100000, guid: 9e8c40486ff08c1478f41d3700e72dba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b9cbcfe2397a8f449e9db88fd7a0ed4, type: 2}
+  - {fileID: 2100000, guid: 9e8c40486ff08c1478f41d3700e72dba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 6275162780781966796}
   - component: {fileID: 8089114940665522647}
   - component: {fileID: 1892632027506084212}
+  - component: {fileID: 1128674618840131880}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -476,7 +477,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b9cbcfe2397a8f449e9db88fd7a0ed4, type: 2}
+  - {fileID: 2100000, guid: 9e8c40486ff08c1478f41d3700e72dba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -523,9 +524,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3326c25c3ec9bf848ad636f41cc83b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 3
   SwitchedOn: 0
   MeshRenderer: {fileID: 6275162780781966796}
   OnMat: {fileID: 2100000, guid: 71d9ff9a141398d4e908b470744c0451, type: 2}
   OffMat: {fileID: 2100000, guid: 2b9cbcfe2397a8f449e9db88fd7a0ed4, type: 2}
-  TextRenderer: {fileID: 0}
+--- !u!114 &1128674618840131880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8471645486380325138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299ed310e1c2e5545a23c99d4ddfdbdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isComplete: 0

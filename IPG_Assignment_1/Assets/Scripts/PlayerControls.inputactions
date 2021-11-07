@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "bb9ff6e5-bed1-40f7-8c08-fbe38d3aa59f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -182,11 +190,22 @@
                 {
                     "name": "",
                     "id": "7ee4b1f6-50b5-4068-ad15-812d7083708d",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74df463e-6f64-4ff4-9bd9-3fba1a30abf0",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

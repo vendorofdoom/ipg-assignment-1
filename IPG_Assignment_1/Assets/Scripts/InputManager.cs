@@ -14,13 +14,7 @@ public class InputManager : MonoBehaviour
 	public bool cursorLocked = true;
 	public bool cursorInputForLook = true;
 
-	private PlayerControls playerControls;
-
-	public delegate void StartInteract(float time);
-	public event StartInteract OnStartInteract;
-	public delegate void EndInteract(float time);
-	public event EndInteract OnEndInteract;
-
+	public PlayerControls playerControls;
 
 	private void Awake()
     {
@@ -43,9 +37,6 @@ public class InputManager : MonoBehaviour
 
 		playerControls.Player.Sprint.performed += OnSprint;
 
-		playerControls.Player.Interact.started += StartInteraction;
-		playerControls.Player.Interact.canceled += EndInteraction;
-
 	}
 
 
@@ -64,9 +55,6 @@ public class InputManager : MonoBehaviour
 		playerControls.Player.Jump.performed -= OnJump;
 
 		playerControls.Player.Sprint.performed -= OnSprint;
-
-		playerControls.Player.Interact.started -= StartInteraction;
-		playerControls.Player.Interact.canceled -= EndInteraction;
 
 	}
 
@@ -91,22 +79,6 @@ public class InputManager : MonoBehaviour
 	public void OnSprint(InputAction.CallbackContext context)
 	{
 		sprint = context.ReadValueAsButton();
-	}
-
-	public void StartInteraction(InputAction.CallbackContext context)
-	{
-		if (OnStartInteract != null)
-		{
-			OnStartInteract((float)context.startTime);
-		}
-	}
-
-	public void EndInteraction(InputAction.CallbackContext context)
-	{
-		if (OnEndInteract != null)
-		{
-			OnEndInteract((float)context.time);
-		}
 	}
 
 }

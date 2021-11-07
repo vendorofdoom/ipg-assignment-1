@@ -38,7 +38,6 @@ public class SteppingStone : Interactable
             if (inventory.isStoneEquipped())
             {
                 return "Press E to fix the broken stepping stone";
-                // TODO: remove stone from inventory
             } else
             {
                 return "Hm... that doesn't look very stable, maybe there's another stone I can repair it with?";

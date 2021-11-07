@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
         AddToInventory(null);
         AddToInventory(rake);
         AddToInventory(steppingStone);
+        AddToInventory(fishFood);
     }
 
     private void OnEnable()
@@ -93,11 +94,18 @@ public class Inventory : MonoBehaviour
     {
         return equippedItem == steppingStone;
     }
-
     public void useStone()
     {
         removeFromInventory(steppingStone);
     }
 
+    public bool isFishFoodEquipped()
+    {
+        return equippedItem == fishFood;
+    }
+    public void useFishFood()
+    {
+        removeFromInventory(fishFood);
+    }
 
 }

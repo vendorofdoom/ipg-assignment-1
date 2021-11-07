@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour
     private List<GameObject> inventoryItems;
     private GameObject equippedItem;
 
+    
+
     private void Awake()
     {
         inventoryItems = new List<GameObject>();
@@ -96,4 +98,6 @@ public class Inventory : MonoBehaviour
     {
         removeFromInventory(steppingStone);
     }
+
+
 }

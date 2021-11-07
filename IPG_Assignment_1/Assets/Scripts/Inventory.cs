@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
         inventoryItems = new List<GameObject>();
         AddToInventory(null);
         AddToInventory(rake);
+        AddToInventory(steppingStone);
     }
 
     private void OnEnable()
@@ -37,6 +38,13 @@ public class Inventory : MonoBehaviour
 
     private void removeFromInventory(GameObject item)
     {
+
+        if (equippedItem == item)
+        {
+            equippedItem.SetActive(false);
+            equippedItem = null;
+        }
+
         if (inventoryItems.Contains(item))
         {
             inventoryItems.Remove(item);
@@ -69,6 +77,8 @@ public class Inventory : MonoBehaviour
         }
 
         equippedItem = nextItem;
+
+        // TODO: slow player if they're holding the stepping stone?
     }
 
     private void OnInventory(InputAction.CallbackContext context)
@@ -77,4 +87,13 @@ public class Inventory : MonoBehaviour
         Debug.Log("Q pressed!");
     }
 
+    public bool isStoneEquipped()
+    {
+        return equippedItem == steppingStone;
+    }
+
+    public void useStone()
+    {
+        removeFromInventory(steppingStone);
+    }
 }

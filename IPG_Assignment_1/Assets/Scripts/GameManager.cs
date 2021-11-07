@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public TMPro.TextMeshProUGUI Text;
 
-    public float resetDelay= 1f;
+    public float resetDelay= 1.5f;
     public bool resetPlayer = false;
 
     private InputManager input;

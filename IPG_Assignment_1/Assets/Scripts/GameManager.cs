@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayerPosition()
     {
-        Player.transform.position = new Vector3(0f, 0f, 0f);
+        Player.transform.position = new Vector3(0f, 0f, 0f); // TODO: replace with last known land position
         input.move = new Vector2(0f, 0f); // stop movement
 
         resetPlayer = false;

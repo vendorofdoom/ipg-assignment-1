@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     public float resetDelay= 1.5f;
     public bool resetPlayer = false;
 
+    private float fontSize;
+
     private InputManager input;
 
     private void Start()
     {
         input = Player.GetComponent<InputManager>();
+        fontSize = Text.fontSize;
     }
 
         public void ResetPlayer()
@@ -24,7 +27,7 @@ public class GameManager : MonoBehaviour
         {
             resetPlayer = true;
             Player.SetActive(false);
-            Text.fontSize = 36f;
+            Text.fontSize = fontSize * 2;
             Text.text = "SPLASH!";
             Invoke("ResetPlayerPosition", resetDelay);
         }
@@ -38,7 +41,7 @@ public class GameManager : MonoBehaviour
         resetPlayer = false;
         Player.SetActive(true);
         
-        Text.fontSize = 12f;
+        Text.fontSize = fontSize;
         Text.text = "";
     }
 }

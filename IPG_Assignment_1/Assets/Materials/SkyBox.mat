@@ -79,12 +79,12 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _mult: 1
-    - _pwer: 8
+    - _pwer: 2
     m_Colors:
-    - _Bottom: {r: 0.49803922, g: 0.65882355, b: 0.6901961, a: 0}
+    - _Bottom: {r: 1, g: 0.9722222, b: 0.9, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.15686275, g: 0.349, b: 0.341, a: 1}
     - _SkyTint: {r: 0.92156863, g: 0.5, b: 0.5, a: 1}
-    - _Top: {r: 1, g: 1, b: 1, a: 0}
+    - _Top: {r: 0.36078432, g: 0.45790014, b: 0.4627451, a: 0}
   m_BuildTextureStacks: []

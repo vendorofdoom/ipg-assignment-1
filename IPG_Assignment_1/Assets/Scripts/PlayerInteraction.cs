@@ -15,23 +15,8 @@ public class PlayerInteraction : MonoBehaviour
     private Interactable interactable;
     private bool successfulHit = false;
 
-
-    //private void Awake()
-    //{
-    //    inputManager = GetComponent<InputManager>();
-    //}
-
-    private void OnEnable()
-    {
-        inputManager.playerControls.Player.Interact.started += StartInteract;
-        inputManager.playerControls.Player.Interact.canceled += EndInteract;
-    }
-
-    private void OnDisable()
-    {
-        inputManager.playerControls.Player.Interact.started -= StartInteract;
-        inputManager.playerControls.Player.Interact.canceled -= EndInteract;
-    }
+    public float timeout = 0.2f;
+    private float _timeout;
 
     private void Update()
     {
@@ -49,25 +34,22 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Text.text = interactable.GetDescription();
                 successfulHit = true;
+
+                if (inputManager.interact && _timeout <= 0.0f)
+                {
+                    interactable.Interact();
+                    _timeout = timeout;
+                    inputManager.interact = false;
+                }
+
             }
         }
+
+        _timeout = Mathf.Clamp(_timeout - Time.deltaTime, -1f, timeout + 1f);
 
         if (!successfulHit)
         {
             Text.text = "";
-        }
-    }
-
-    private void StartInteract(InputAction.CallbackContext context)
-    {
-        // leaving this here in case I want to implement some kind of press and hold functionality
-    }
-
-    private void EndInteract(InputAction.CallbackContext context)
-    {
-        if (successfulHit && interactable != null)
-        {
-            interactable.Interact();
         }
     }
 

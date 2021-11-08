@@ -13,7 +13,10 @@ public class Inventory : MonoBehaviour
     public InputManager inputManager;
     private List<GameObject> inventoryItems;
     private GameObject equippedItem;
-    
+
+    public float timeout = 0.2f;
+    private float _timeout;
+
     public enum InventoryItem
     {
         Rake,
@@ -28,16 +31,6 @@ public class Inventory : MonoBehaviour
         AddToInventory(rake);
         AddToInventory(steppingStone);
         AddToInventory(fishFood);
-    }
-
-    private void OnEnable()
-    {
-        inputManager.playerControls.Player.Inventory.started += OnInventory;
-    }
-
-    private void OnDisable()
-    {
-        inputManager.playerControls.Player.Inventory.started -= OnInventory;
     }
 
     private void AddToInventory(GameObject item)
@@ -90,11 +83,6 @@ public class Inventory : MonoBehaviour
         // TODO: slow player if they're holding the heavy stepping stone?
     }
 
-    private void OnInventory(InputAction.CallbackContext context)
-    {
-        EquipNextItem();
-    }
-
     public void UseItem(InventoryItem item)
     {
         switch (item)
@@ -127,6 +115,19 @@ public class Inventory : MonoBehaviour
 
             default:
                 return false;
+        }
+    }
+
+    private void Update()
+    {
+        if (inputManager.inventory && _timeout <= 0f)
+        {
+            EquipNextItem();
+            _timeout = timeout;
+            inputManager.inventory = false;
+        } else
+        {
+            _timeout = Mathf.Clamp(_timeout - Time.deltaTime, -1f, timeout + 1f);
         }
     }
 

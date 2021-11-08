@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour
 	public Vector2 cursor;
 	public bool jump;
 	public bool sprint;
+	public bool interact;
+	public bool inventory;
 
 	[Header("Mouse Cursor Settings")]
 	public bool cursorLocked = true;
@@ -37,6 +39,9 @@ public class InputManager : MonoBehaviour
 
 		playerControls.Player.Sprint.performed += OnSprint;
 
+		playerControls.Player.Interact.performed += OnInteract;
+
+		playerControls.Player.Inventory.performed += OnInventory;
 	}
 
 
@@ -56,6 +61,9 @@ public class InputManager : MonoBehaviour
 
 		playerControls.Player.Sprint.performed -= OnSprint;
 
+		playerControls.Player.Interact.performed -= OnInteract;
+
+		playerControls.Player.Inventory.performed -= OnInventory;
 	}
 
     public void OnMove(InputAction.CallbackContext context)
@@ -80,5 +88,15 @@ public class InputManager : MonoBehaviour
 	{
 		sprint = context.ReadValueAsButton();
 	}
+
+	public void OnInteract(InputAction.CallbackContext context)
+	{
+		interact = context.ReadValueAsButton();
+	}
+	public void OnInventory(InputAction.CallbackContext context)
+	{
+		inventory = context.ReadValueAsButton();
+	}
+
 
 }

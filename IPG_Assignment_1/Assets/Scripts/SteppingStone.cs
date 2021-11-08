@@ -35,7 +35,7 @@ public class SteppingStone : Interactable
             return "Nice and stable :)";
         } else
         {
-            if (inventory.isStoneEquipped())
+            if (inventory.IsEquipped(Inventory.InventoryItem.SteppingStone))
             {
                 return "Press E to fix the broken stepping stone";
             } else
@@ -47,9 +47,9 @@ public class SteppingStone : Interactable
 
     public override void Interact()
     {
-        if (!isFixed && inventory.isStoneEquipped())
+        if (!isFixed && inventory.IsEquipped(Inventory.InventoryItem.SteppingStone))
         {
-            inventory.useStone();
+            inventory.UseItem(Inventory.InventoryItem.SteppingStone);
             brokenStone.SetActive(false);
             fixedStone.SetActive(true);
             isFixed = true;

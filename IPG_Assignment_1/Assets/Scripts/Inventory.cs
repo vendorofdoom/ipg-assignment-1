@@ -2,18 +2,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// TODO: not sure about enum + case statements, try with dict later?
+
 public class Inventory : MonoBehaviour
 {
     public GameObject rake;
     public GameObject fishFood;
-    public GameObject lighter;
     public GameObject steppingStone;
 
     public InputManager inputManager;
     private List<GameObject> inventoryItems;
     private GameObject equippedItem;
-
     
+    public enum InventoryItem
+    {
+        Rake,
+        FishFood,
+        SteppingStone
+    }
 
     private void Awake()
     {
@@ -39,7 +45,7 @@ public class Inventory : MonoBehaviour
         inventoryItems.Add(item);
     }
 
-    private void removeFromInventory(GameObject item)
+    private void RemoveFromInventory(GameObject item)
     {
 
         if (equippedItem == item)
@@ -81,31 +87,47 @@ public class Inventory : MonoBehaviour
 
         equippedItem = nextItem;
 
-        // TODO: slow player if they're holding the stepping stone?
+        // TODO: slow player if they're holding the heavy stepping stone?
     }
 
     private void OnInventory(InputAction.CallbackContext context)
     {
         EquipNextItem();
-        Debug.Log("Q pressed!");
     }
 
-    public bool isStoneEquipped()
+    public void UseItem(InventoryItem item)
     {
-        return equippedItem == steppingStone;
-    }
-    public void useStone()
-    {
-        removeFromInventory(steppingStone);
+        switch (item)
+        {
+            case InventoryItem.FishFood:
+                RemoveFromInventory(fishFood);
+                break;
+
+            case InventoryItem.SteppingStone:
+                RemoveFromInventory(steppingStone);
+                break;
+
+            default:
+                break;
+        }
     }
 
-    public bool isFishFoodEquipped()
+    public bool IsEquipped(InventoryItem item)
     {
-        return equippedItem == fishFood;
-    }
-    public void useFishFood()
-    {
-        removeFromInventory(fishFood);
+        switch (item)
+        {
+            case InventoryItem.FishFood:
+                return equippedItem == fishFood;
+
+            case InventoryItem.Rake:
+                return equippedItem == rake;
+
+            case InventoryItem.SteppingStone:
+                return equippedItem == steppingStone;
+
+            default:
+                return false;
+        }
     }
 
 }

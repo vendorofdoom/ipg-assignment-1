@@ -21,7 +21,7 @@ public class KoiFish : Interactable
     {
         if (!koiFed)
         {
-            if (inventory.isFishFoodEquipped())
+            if (inventory.IsEquipped(Inventory.InventoryItem.FishFood))
             {
                 return "Press E to feed the fish!";
             }
@@ -38,9 +38,9 @@ public class KoiFish : Interactable
 
     public override void Interact()
     {
-        if (!koiFed && inventory.isFishFoodEquipped())
+        if (!koiFed && inventory.IsEquipped(Inventory.InventoryItem.FishFood))
         {
-            inventory.useFishFood();
+            inventory.UseItem(Inventory.InventoryItem.FishFood);
             koiFed = true;
             GetComponent<Task>().isComplete = true;
             startTime = Time.time;

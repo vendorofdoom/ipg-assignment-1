@@ -27,15 +27,28 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         inventoryItems = new List<GameObject>();
-        AddToInventory(null);
-        AddToInventory(rake);
-        AddToInventory(steppingStone);
-        AddToInventory(fishFood);
+        inventoryItems.Add(null);
     }
 
-    private void AddToInventory(GameObject item)
+    public void Add(InventoryItem item)
     {
-        inventoryItems.Add(item);
+        switch (item)
+        {
+                case InventoryItem.FishFood:
+                inventoryItems.Add(fishFood);
+                break;
+
+            case InventoryItem.SteppingStone:
+                inventoryItems.Add(steppingStone);
+                break;
+
+            case InventoryItem.Rake:
+                inventoryItems.Add(rake);
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void RemoveFromInventory(GameObject item)

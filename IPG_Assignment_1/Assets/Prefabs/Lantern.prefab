@@ -527,7 +527,7 @@ MonoBehaviour:
   SwitchedOn: 0
   MeshRenderer: {fileID: 6275162780781966796}
   OnMat: {fileID: 2100000, guid: 71d9ff9a141398d4e908b470744c0451, type: 2}
-  OffMat: {fileID: 2100000, guid: 2b9cbcfe2397a8f449e9db88fd7a0ed4, type: 2}
+  OffMat: {fileID: 2100000, guid: 9e8c40486ff08c1478f41d3700e72dba, type: 2}
 --- !u!114 &1128674618840131880
 MonoBehaviour:
   m_ObjectHideFlags: 0

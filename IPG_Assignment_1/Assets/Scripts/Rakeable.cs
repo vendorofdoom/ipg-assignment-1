@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rake : MonoBehaviour
+public class Rakeable : MonoBehaviour
 {
     private bool canRake = false;
     private Transform player;

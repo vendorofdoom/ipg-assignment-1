@@ -6,7 +6,7 @@ public class BranchPile : Interactable
 { 
     public override string GetDescription()
     {
-        return "Click to tidy up the branches";
+        return "Press [E] to tidy up the branches";
     }
     
     public override void Interact()

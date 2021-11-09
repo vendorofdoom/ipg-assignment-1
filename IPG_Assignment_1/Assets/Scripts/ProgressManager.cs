@@ -8,6 +8,8 @@ public class ProgressManager : MonoBehaviour
     private int tasksCount;
     private Task[] tasks;
 
+    public GameManager gm;
+
     private void Awake()
     {
         tasksCompleted = 0;
@@ -30,7 +32,7 @@ public class ProgressManager : MonoBehaviour
         
         if (tasksCompleted == tasksCount)
         {
-            GetComponent<GameManager>().TasksComplete();
+            gm.TasksComplete();
             this.enabled = false;
         }
 

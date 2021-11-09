@@ -10,12 +10,11 @@ public class GameManager : MonoBehaviour
 
     public float resetDelay= 1.5f;
     public bool resetPlayer = false;
+    public Vector3 resetPosition;
 
     private float fontSize;
 
     private InputManager input;
-
-    public Opening openScene;
 
     public bool tasksComplete = false;
 
@@ -23,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         input = Player.GetComponent<InputManager>();
         fontSize = Text.fontSize;
-        openScene.enabled = true;
+        GetComponent<Opening>().enabled = true;
     }
 
     public void ResetPlayer()
@@ -40,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayerPosition()
     {
-        Player.transform.position = new Vector3(0f, 0f, 0f); // TODO: replace with last known land position
+        Player.transform.position = resetPosition;
         input.move = new Vector2(0f, 0f); // stop movement
 
         resetPlayer = false;
@@ -57,6 +56,6 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        Debug.Log("Game complete!");
+        GetComponent<Ending>().enabled = true;
     }
 }

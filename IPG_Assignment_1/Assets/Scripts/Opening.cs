@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
 using System.Collections;
 
 // Alan's video: https://youtu.be/_Oi6MuesXnw
@@ -9,7 +8,7 @@ public class Opening : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public InputManager input;
-    public ParticleSystem rain;
+    public ParticleSystem rain; // rain effect tutorial: https://youtu.be/xkB6yzCBfgw
     public Home home;
 
     private void Awake()
@@ -27,13 +26,21 @@ public class Opening : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        text.text = "The garden is a mess and my inner balance is all off...";
+        text.text = "The garden is a mess...";
+
+        yield return new WaitForSeconds(2f);
+
+        text.text = "My inner balance is all off...";
 
         yield return new WaitForSeconds(3f);
 
+        text.text = "...";
+
+        yield return new WaitForSeconds(1f);
+
         text.text = "I'd better get outside, the koi fish need their breakfast.";
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         text.text = "";
         input.enabled = true;

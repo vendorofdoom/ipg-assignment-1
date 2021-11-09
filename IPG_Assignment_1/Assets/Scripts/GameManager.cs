@@ -15,13 +15,16 @@ public class GameManager : MonoBehaviour
 
     private InputManager input;
 
+    public Opening openScene;
+
     private void Start()
     {
         input = Player.GetComponent<InputManager>();
         fontSize = Text.fontSize;
+        openScene.enabled = true;
     }
 
-        public void ResetPlayer()
+    public void ResetPlayer()
     {
         if (resetPlayer == false)
         {

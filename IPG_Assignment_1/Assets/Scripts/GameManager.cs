@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public Opening openScene;
 
+    public bool tasksComplete = false;
+
     private void Start()
     {
         input = Player.GetComponent<InputManager>();
@@ -46,5 +48,15 @@ public class GameManager : MonoBehaviour
         
         Text.fontSize = fontSize;
         Text.text = "";
+    }
+
+    public void TasksComplete()
+    {
+        tasksComplete = true;
+    }
+
+    public void EndGame()
+    {
+        Debug.Log("Game complete!");
     }
 }

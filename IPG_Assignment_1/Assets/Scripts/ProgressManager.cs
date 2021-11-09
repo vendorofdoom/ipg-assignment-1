@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProgressManager : MonoBehaviour
 {
-    private int tasksCompleted;
+    public int tasksCompleted;
     private int tasksCount;
     private Task[] tasks;
 

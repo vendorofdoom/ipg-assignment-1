@@ -15,9 +15,12 @@ public class Home : MonoBehaviour
     public Opening opening;
     public Ending ending;
 
+    [Header("Audio")]
+    public AudioSource doorUnlockedAudio;
+
     private void Awake()
     {
-        //opening.enabled = true;
+        opening.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +40,7 @@ public class Home : MonoBehaviour
                 } else
                 {
                     displayMessage = false;
-                    //ending.enabled = true; 
+                    ending.enabled = true; 
                 }
             }
 
@@ -75,6 +78,7 @@ public class Home : MonoBehaviour
     {
         door.isTrigger = true;
         doorLocked = false;
+        doorUnlockedAudio.enabled = true;
     }
 
 }

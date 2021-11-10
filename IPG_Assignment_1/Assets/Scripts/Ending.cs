@@ -11,11 +11,11 @@ public class Ending : MonoBehaviour
 
     IEnumerator Start()
     {
-        input.enabled = false;
-
-        yield return new WaitForSeconds(2f);
+       
+        yield return new WaitForSeconds(1f);
 
         text.text = "Ahh much better...";
+        input.enabled = false;
 
         yield return new WaitForSeconds(2f);
 

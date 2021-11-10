@@ -7,13 +7,15 @@ public class Rakeable : MonoBehaviour
     private bool canRake = false;
     private Transform player;
     private GameObject rake;
-
     private Vector2 stationery = new Vector2(0f, 0f);
 
+    [Header("Rake task timings")]
     [SerializeField]
     private float timeSpentRaking = 0f;
-
     public float rakingTimeRequired = 5f;
+
+    [Header("Audio")]
+    public AudioSource rakingAudio;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +24,7 @@ public class Rakeable : MonoBehaviour
             player = other.transform;
             rake = player.Find("Rake").gameObject;
             canRake = true;
+            rakingAudio.enabled = true;
         }
 
     }
@@ -31,24 +34,33 @@ public class Rakeable : MonoBehaviour
         if (other.CompareTag("Player") == true)
         {
             canRake = false;
+            rakingAudio.enabled = false;
+            player.Find("RakeTrailSource").GetComponent<TrailRenderer>().emitting = false;
         }
 
     }
 
     private void Update()
     {
-        if (player != null) {
-            player.Find("RakeTrailSource").GetComponent<TrailRenderer>().emitting = canRake && rake.activeSelf;
-            if (player.GetComponent<InputManager>().move != stationery && canRake && rake.activeSelf)
+        if (canRake)
+        {
+            player.Find("RakeTrailSource").GetComponent<TrailRenderer>().emitting = rake.activeSelf;
+
+            if (player.GetComponent<InputManager>().move != stationery && rake.activeSelf)
             {
                 timeSpentRaking += Time.deltaTime;
+                rakingAudio.UnPause();
             }
-            
-        }
+            else
+            {
+                rakingAudio.Pause();
+            }
 
-        if (timeSpentRaking > rakingTimeRequired)
-        {
-            GetComponent<Task>().isComplete = true;
+
+            if (timeSpentRaking > rakingTimeRequired)
+            {
+                GetComponent<Task>().isComplete = true;
+            }
         }
 
     }

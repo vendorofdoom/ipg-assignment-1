@@ -1,24 +1,20 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
 
 public class Water : MonoBehaviour
 {
-    private float fontSize;
-
-    private bool playerFellInWater = false;
-    private float timeInWater;
-
     private GameObject player;
-    private InputManager input;
     private CanvasGroup backgroundImage;
-    private TextMeshProUGUI text;
-    
-    private bool playerPosHasBeenReset = false;
+    private TextMeshProUGUI message;
+    private bool playerFellInWater = false;
+
+    [Header ("Animation timing")]
+    public float fadeInTime = 1f;
+    private float elapsedTime;
 
     private void Awake()
     {
-        text = GameObject.Find("Canvas/Info").GetComponent<TextMeshProUGUI>();
+        message = GameObject.Find("Canvas/Water").GetComponent<TextMeshProUGUI>();
         backgroundImage = GameObject.Find("Canvas/Background").GetComponent<CanvasGroup>();
     }
 
@@ -26,54 +22,44 @@ public class Water : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            player = other.gameObject;
-            input = player.GetComponent<InputManager>();
-            player.SetActive(false);
             playerFellInWater = true;
-            playerPosHasBeenReset = false;
-            timeInWater = 0f;
-            fontSize = text.fontSize;
-            text.fontSize = fontSize * 2;
+            elapsedTime = 0f;
+
+            player = other.gameObject;
+            player.GetComponent<StarterAssets.ThirdPersonController>().enabled = false;
+            player.GetComponent<CharacterController>().enabled = false;
+            GameObject.Find("PlayerCapsule/Capsule").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.Find("PlayerCapsule/Face").GetComponent<MeshRenderer>().enabled = false;
         }
     }
+
+
+    // TODO: consider if there's going to be issues where I have multiple water sections and player falls at a seam triggering two? 
 
     private void Update()
     {
         if (playerFellInWater)
         {
-            if (timeInWater <= 2f)
+            if (elapsedTime <= fadeInTime)
             {
-                text.text = "SPLASH!\nI'd better go dry off...";
-                backgroundImage.alpha += Time.deltaTime / 2f;
+                message.text = "SPLASH!\nI'd better go dry off...";
+                backgroundImage.alpha += Time.deltaTime / fadeInTime;
             }
-            else if (timeInWater > 2f && timeInWater <= 3f)
-            {
-                text.alpha -= Time.deltaTime / 1f;
-            }
-            else if (timeInWater > 3f && timeInWater <= 3.5f)
-            {
-                if (!playerPosHasBeenReset)
-                {
-                    player.transform.position = new Vector3(-12f, 0f, 0.5f);
-                    input.move = new Vector2(0f, 0f);
-                    player.SetActive(true);
-                    input.enabled = false;
-                    playerPosHasBeenReset = true;
-                    text.fontSize = fontSize;
-                    text.text = "";
-                    text.alpha = 255f;
 
-                }
-                backgroundImage.alpha -= Time.deltaTime / 0.5f;
-            }
             else
             {
+                player.transform.position = new Vector3(0f, 0f, 0f);
+                player.GetComponent<CharacterController>().enabled = true;
+                player.GetComponent<StarterAssets.ThirdPersonController>().enabled = true;
+                GameObject.Find("PlayerCapsule/Capsule").GetComponent<MeshRenderer>().enabled = true;
+                GameObject.Find("PlayerCapsule/Face").GetComponent<MeshRenderer>().enabled = true;
+                player.GetComponent<InputManager>().move = new Vector2(0f, 0f);
                 playerFellInWater = false;
-                input.enabled = true;
                 backgroundImage.alpha = 0f;
+                message.text = "";
             }
 
-            timeInWater += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
 
         }
     }

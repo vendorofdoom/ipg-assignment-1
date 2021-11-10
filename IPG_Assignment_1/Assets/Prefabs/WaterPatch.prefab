@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3516808294704125355}
   - component: {fileID: 9021154203895162680}
   - component: {fileID: 723429150276431837}
-  - component: {fileID: 5854093286326391911}
+  - component: {fileID: 7774240376978459899}
   m_Layer: 0
   m_Name: WaterPatch
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5854093286326391911
+--- !u!114 &7774240376978459899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,3 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53e30b3d912e1b489b31463ccaae482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  message: {fileID: 0}
+  playerFellInWater: 0
+  fadeInTime: 2
+  elapsedTime: 0

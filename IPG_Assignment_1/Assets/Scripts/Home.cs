@@ -6,18 +6,18 @@ public class Home : MonoBehaviour
     public BoxCollider door;
     public TextMeshProUGUI text;
 
+    [SerializeField]
     private bool doorLocked = false;
+    [SerializeField]
     private bool displayMessage = false;
 
+    [Header("Cutscenes")]
     public Opening opening;
     public Ending ending;
 
     private void Awake()
     {
-        if (opening != null)
-        {
-            opening.enabled = true;
-        }
+        //opening.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,10 +37,7 @@ public class Home : MonoBehaviour
                 } else
                 {
                     displayMessage = false;
-                    if (ending != null)
-                    {
-                        ending.enabled = true;
-                    }
+                    //ending.enabled = true; 
                 }
             }
 
@@ -52,7 +49,7 @@ public class Home : MonoBehaviour
         if (doorLocked && displayMessage)
         {
             text.text = "My inner balance is still off... I should get back to the garden and finish what I was doing.";
-        } 
+        }
     }
 
     private void OnTriggerExit(Collider other)

@@ -8288,6 +8288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53e30b3d912e1b489b31463ccaae482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashClip: {fileID: 0}
   fadeInTime: 2
 --- !u!1 &523975038
 GameObject:
@@ -8572,6 +8573,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7774240376978459899, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
+      propertyPath: splashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7139c4c94d38c614d9bc3c58a7ad3cc8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
 --- !u!4 &563626201 stripped
@@ -8979,6 +8984,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7774240376978459899, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
+      propertyPath: splashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7139c4c94d38c614d9bc3c58a7ad3cc8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
 --- !u!4 &647079731 stripped
@@ -9503,6 +9512,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7774240376978459899, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
+      propertyPath: splashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7139c4c94d38c614d9bc3c58a7ad3cc8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
 --- !u!4 &847331456 stripped
@@ -10263,6 +10276,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7774240376978459899, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
+      propertyPath: splashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7139c4c94d38c614d9bc3c58a7ad3cc8, type: 3}
     m_RemovedComponents:
     - {fileID: 5854093286326391911, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
@@ -11349,6 +11366,102 @@ MonoBehaviour:
   cam: {fileID: 1769334020}
   inputManager: {fileID: 1083836950}
   timeout: 0.2
+--- !u!82 &1083836952
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083836949}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1083836955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26040,6 +26153,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7774240376978459899, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
+      propertyPath: splashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7139c4c94d38c614d9bc3c58a7ad3cc8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ea643475d8dc24b92c62c3b6dc21f1, type: 3}
 --- !u!1001 &2131263712

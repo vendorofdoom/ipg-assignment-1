@@ -3,19 +3,28 @@ using TMPro;
 
 public class Water : MonoBehaviour
 {
+    
+
     private GameObject player;
     private CanvasGroup backgroundImage;
     private TextMeshProUGUI message;
     private bool playerFellInWater = false;
 
+    [Header("Audio")]
+    public AudioClip splashClip;
+    private AudioSource splashSource;
+
+
     [Header ("Animation timing")]
     public float fadeInTime = 1f;
     private float elapsedTime;
+
 
     private void Awake()
     {
         message = GameObject.Find("Canvas/Water").GetComponent<TextMeshProUGUI>();
         backgroundImage = GameObject.Find("Canvas/Background").GetComponent<CanvasGroup>();
+        splashSource = GameObject.Find("PlayerCapsule").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,6 +39,7 @@ public class Water : MonoBehaviour
             player.GetComponent<CharacterController>().enabled = false;
             GameObject.Find("PlayerCapsule/Capsule").GetComponent<MeshRenderer>().enabled = false;
             GameObject.Find("PlayerCapsule/Face").GetComponent<MeshRenderer>().enabled = false;
+            splashSource.PlayOneShot(splashClip);
         }
     }
 

@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
 	public bool sprint;
 	public bool interact;
 	public bool inventory;
+	private bool mute = false;
 
 	[Header("Mouse Cursor Settings")]
 	public bool cursorLocked = true;
@@ -42,6 +43,8 @@ public class InputManager : MonoBehaviour
 		playerControls.Player.Interact.performed += OnInteract;
 
 		playerControls.Player.Inventory.performed += OnInventory;
+
+		playerControls.Player.Mute.performed += OnMute;
 	}
 
 
@@ -64,6 +67,8 @@ public class InputManager : MonoBehaviour
 		playerControls.Player.Interact.performed -= OnInteract;
 
 		playerControls.Player.Inventory.performed -= OnInventory;
+
+		playerControls.Player.Mute.performed -= OnMute;
 	}
 
     public void OnMove(InputAction.CallbackContext context)
@@ -96,6 +101,11 @@ public class InputManager : MonoBehaviour
 	public void OnInventory(InputAction.CallbackContext context)
 	{
 		inventory = context.ReadValueAsButton();
+	}
+	public void OnMute(InputAction.CallbackContext context)
+	{
+		mute = !mute;
+		AudioListener.volume = mute ? 0f : 1f;
 	}
 
 

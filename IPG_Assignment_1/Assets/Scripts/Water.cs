@@ -36,6 +36,7 @@ public class Water : MonoBehaviour
 
             player = other.gameObject;
             player.GetComponent<StarterAssets.ThirdPersonController>().enabled = false;
+            player.GetComponent<PlayerInteraction>().enabled = false;
             player.GetComponent<CharacterController>().enabled = false;
             GameObject.Find("PlayerCapsule/Capsule").GetComponent<MeshRenderer>().enabled = false;
             GameObject.Find("PlayerCapsule/Face").GetComponent<MeshRenderer>().enabled = false;
@@ -60,6 +61,7 @@ public class Water : MonoBehaviour
             {
                 player.transform.position = new Vector3(0f, 0f, 0f);
                 player.GetComponent<CharacterController>().enabled = true;
+                player.GetComponent<PlayerInteraction>().enabled = true;
                 player.GetComponent<StarterAssets.ThirdPersonController>().enabled = true;
                 GameObject.Find("PlayerCapsule/Capsule").GetComponent<MeshRenderer>().enabled = true;
                 GameObject.Find("PlayerCapsule/Face").GetComponent<MeshRenderer>().enabled = true;

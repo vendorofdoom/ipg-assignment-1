@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 // Brackeys RPG tutorial: https://youtu.be/9tePzyL6dgc
 // Interactable tutorial: https://youtu.be/858X6_WHfuw
@@ -7,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactionDistance;
-    public TMPro.TextMeshProUGUI Text;
+    public TextMeshProUGUI text;
     public Camera cam;
 
     public InputManager inputManager;
@@ -32,7 +33,7 @@ public class PlayerInteraction : MonoBehaviour
             interactable = hit.collider.GetComponent<Interactable>();
             if (interactable != null)
             {
-                Text.text = interactable.GetDescription();
+                text.text = interactable.GetDescription();
                 successfulHit = true;
 
                 if (inputManager.interact && _timeout <= 0.0f)
@@ -49,7 +50,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (!successfulHit)
         {
-            Text.text = "";
+            text.text = "";
         }
     }
 

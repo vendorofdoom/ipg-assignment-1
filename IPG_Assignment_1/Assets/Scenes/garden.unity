@@ -11362,11 +11362,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 10
-  Text: {fileID: 391155569}
+  text: {fileID: 391155569}
   cam: {fileID: 1769334020}
   inputManager: {fileID: 1083836950}
   timeout: 0.2
---- !u!82 &1083836952
+--- !u!114 &1083836955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083836949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a0c8fe58554944a9daa6d5a0fbcbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rake: {fileID: 1667317741}
+  fishFood: {fileID: 2057510695}
+  steppingStone: {fileID: 1598625112}
+  inputManager: {fileID: 1083836950}
+  timeout: 0.2
+--- !u!82 &1083836957
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11462,23 +11479,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1083836955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083836949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a0c8fe58554944a9daa6d5a0fbcbb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rake: {fileID: 1667317741}
-  fishFood: {fileID: 2057510695}
-  steppingStone: {fileID: 1598625112}
-  inputManager: {fileID: 1083836950}
-  timeout: 0.2
 --- !u!1 &1088574197
 GameObject:
   m_ObjectHideFlags: 0
@@ -18757,7 +18757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 283094686}
-  text: {fileID: 391155569}
+  text: {fileID: 3395870459673150678}
   doorLocked: 0
   displayMessage: 0
   opening: {fileID: 1319193135}

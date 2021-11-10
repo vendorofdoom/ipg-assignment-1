@@ -5,29 +5,51 @@ public class Home : MonoBehaviour
 {
     public BoxCollider door;
     public TextMeshProUGUI text;
-    public GameManager gm;
 
+    private bool doorLocked = false;
     private bool displayMessage = false;
+
+    public Opening opening;
+    public Ending ending;
+
+    private void Awake()
+    {
+        if (opening != null)
+        {
+            opening.enabled = true;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (gm.tasksComplete)
+            if (opening.enabled)
             {
-                door.isTrigger = true;
                 displayMessage = false;
-                gm.EndGame();
-            } else
-            {
-                displayMessage = true;
             }
+
+            else
+            {
+                if (doorLocked)
+                {
+                    displayMessage = true;
+                } else
+                {
+                    displayMessage = false;
+                    if (ending != null)
+                    {
+                        ending.enabled = true;
+                    }
+                }
+            }
+
         }
     }
 
     private void Update()
     {
-        if (!door.isTrigger && displayMessage)
+        if (doorLocked && displayMessage)
         {
             text.text = "My inner balance is still off... I should get back to the garden and finish what I was doing.";
         } 
@@ -35,12 +57,27 @@ public class Home : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !gm.tasksComplete)
+
+        // when the player leaves home, lock the door until they complete the tasks
+        if (other.CompareTag("Player") && !doorLocked)
         {
-            door.isTrigger = false; // i.e. lock the door
+            LockDoor();
         } 
 
         displayMessage = false;
         text.text = "";
     }
+
+    public void LockDoor()
+    {
+        door.isTrigger = false;
+        doorLocked = true;
+    }
+
+    public void unlockDoor()
+    {
+        door.isTrigger = true;
+        doorLocked = false;
+    }
+
 }

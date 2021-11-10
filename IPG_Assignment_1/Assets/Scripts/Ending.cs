@@ -9,13 +9,9 @@ public class Ending : MonoBehaviour
     public InputManager input;
     public CanvasGroup endScreen;
 
-    private void Awake()
-    {
-        input.enabled = false;
-    }
-
     IEnumerator Start()
     {
+        input.enabled = false;
 
         yield return new WaitForSeconds(2f);
 
@@ -34,7 +30,7 @@ public class Ending : MonoBehaviour
         text.text = "Inner balance restored.";
 
         text.CrossFadeAlpha(0f, 5f, false);
-        // endScreen.CrossFadeAlpha(255f, 2f, true); // TODO: why won't this work in coroutine!?!?
+        // endScreen.CrossFadeAlpha(255f, 2f, true); // TODO: figure out why I can't get this to work, workaround to have this aspect in Update()
 
         yield return new WaitForSeconds(5f);
 

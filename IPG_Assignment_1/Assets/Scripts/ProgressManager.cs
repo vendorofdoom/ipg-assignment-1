@@ -8,7 +8,7 @@ public class ProgressManager : MonoBehaviour
     private int tasksCount;
     private Task[] tasks;
 
-    public GameManager gm;
+    public Home home;
 
     private void Awake()
     {
@@ -20,8 +20,8 @@ public class ProgressManager : MonoBehaviour
 
     private void CalcProgress()
     {
-
         tasksCompleted = 0;
+
         foreach (Task task in tasks)
         {
             if (task.isComplete)
@@ -32,7 +32,7 @@ public class ProgressManager : MonoBehaviour
         
         if (tasksCompleted == tasksCount)
         {
-            gm.TasksComplete();
+            home.unlockDoor();
             this.enabled = false;
         }
 

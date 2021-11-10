@@ -9,16 +9,11 @@ public class Opening : MonoBehaviour
     public TextMeshProUGUI text;
     public InputManager input;
     public ParticleSystem rain; // rain effect tutorial: https://youtu.be/xkB6yzCBfgw
-    public Home home;
-
-    private void Awake()
-    {
-        rain.Play(true);
-        input.enabled = false;
-    }
 
     IEnumerator Start()
     {
+        rain.Play(true);
+        input.enabled = false;
 
         yield return new WaitForSeconds(2f);
 
@@ -44,7 +39,6 @@ public class Opening : MonoBehaviour
 
         text.text = "";
         input.enabled = true;
-        home.enabled = true;
         rain.Stop();
         this.enabled = false;
 

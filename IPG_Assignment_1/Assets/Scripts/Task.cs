@@ -5,5 +5,4 @@ using UnityEngine;
 public class Task : MonoBehaviour
 {
     public bool isComplete = false;
-
 }

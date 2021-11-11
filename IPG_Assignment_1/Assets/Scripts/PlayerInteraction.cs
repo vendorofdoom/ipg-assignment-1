@@ -10,6 +10,8 @@ public class PlayerInteraction : MonoBehaviour
     public float interactionDistance;
     public TextMeshProUGUI text;
     public Camera cam;
+    public int ignoreRaycastLayer;
+    private int layerMask;
 
     public InputManager inputManager;
 
@@ -19,6 +21,11 @@ public class PlayerInteraction : MonoBehaviour
     public float timeout = 0.2f;
     private float _timeout;
 
+    private void Awake()
+    {
+        layerMask = 1 << ignoreRaycastLayer;
+    }
+
     private void Update()
     {
         Vector2 cursorPos = Mouse.current.position.ReadValue();
@@ -27,7 +34,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         successfulHit = false;
 
-        if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Physics.Raycast(ray, out hit, interactionDistance, layerMask))
         {
 
             interactable = hit.collider.GetComponent<Interactable>();

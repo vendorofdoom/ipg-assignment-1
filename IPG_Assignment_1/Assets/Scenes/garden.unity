@@ -9310,7 +9310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53e30b3d912e1b489b31463ccaae482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashClip: {fileID: 0}
+  splashClip: {fileID: 8300000, guid: a3cc3aa5cb3a3b8419dcc3af38a27b5f, type: 3}
   fadeInTime: 2
 --- !u!1 &523975038
 GameObject:

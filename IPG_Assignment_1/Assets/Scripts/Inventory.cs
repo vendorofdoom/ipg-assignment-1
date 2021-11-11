@@ -99,6 +99,15 @@ public class Inventory : MonoBehaviour
         // TODO: slow player if they're holding the heavy stepping stone?
     }
 
+    public void UnequipCurrentItem()
+    {
+        if (equippedItem != null)
+        {
+            equippedItem.SetActive(false);
+            equippedItem = null;
+        }
+    }
+
     public void UseItem(InventoryItem item)
     {
         switch (item)

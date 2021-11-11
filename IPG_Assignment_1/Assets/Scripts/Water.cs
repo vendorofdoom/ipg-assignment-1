@@ -6,6 +6,7 @@ public class Water : MonoBehaviour
     private GameObject player;
     private CanvasGroup backgroundImage;
     private TextMeshProUGUI message;
+    private TextMeshProUGUI info;
     private bool playerFellInWater = false;
 
     [Header("Audio")]
@@ -20,7 +21,8 @@ public class Water : MonoBehaviour
 
     private void Awake()
     {
-        message = GameObject.Find("Canvas/Water").GetComponent<TextMeshProUGUI>();
+        info = GameObject.Find("Canvas/Water").GetComponent<TextMeshProUGUI>();
+        message = GameObject.Find("Canvas/Info").GetComponent<TextMeshProUGUI>();
         backgroundImage = GameObject.Find("Canvas/Background").GetComponent<CanvasGroup>();
         splashSource = GameObject.Find("PlayerCapsule").GetComponent<AudioSource>();
     }
@@ -33,6 +35,7 @@ public class Water : MonoBehaviour
             elapsedTime = 0f;
 
             player = other.gameObject;
+            player.GetComponent<Inventory>().UnequipCurrentItem();
             player.GetComponent<StarterAssets.ThirdPersonController>().enabled = false;
             player.GetComponent<PlayerInteraction>().enabled = false;
             player.GetComponent<CharacterController>().enabled = false;
@@ -51,6 +54,8 @@ public class Water : MonoBehaviour
         {
             if (elapsedTime <= fadeInTime)
             {
+
+                info.text = "";
                 message.text = "Oops! I better go dry off...";
                 backgroundImage.alpha += Time.deltaTime / fadeInTime;
             }

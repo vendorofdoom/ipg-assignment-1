@@ -743,8 +743,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 8, z: 8}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 30, y: 8, z: 24}
+  m_Center: {x: 0, y: 0, z: 5}
 --- !u!4 &61854064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7148632563953740251, guid: dc8be249d090c33409072abe9d6a6be2, type: 3}
@@ -10532,7 +10532,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -12824,7 +12824,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -25669,8 +25669,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 4, z: 6}
+  m_Center: {x: 0, y: 2, z: -2}
 --- !u!114 &1654705020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25841,7 +25841,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -31913,18 +31913,6 @@ PrefabInstance:
     - target: {fileID: 2599008303288399249, guid: 1fd5a563715918a47a07b87d13e541af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901674285615505764, guid: 1fd5a563715918a47a07b87d13e541af, type: 3}
-      propertyPath: m_Size.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901674285615505764, guid: 1fd5a563715918a47a07b87d13e541af, type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5901674285615505764, guid: 1fd5a563715918a47a07b87d13e541af, type: 3}
-      propertyPath: m_Size.z
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd5a563715918a47a07b87d13e541af, type: 3}

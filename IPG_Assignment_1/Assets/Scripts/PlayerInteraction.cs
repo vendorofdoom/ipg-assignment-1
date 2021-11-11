@@ -47,8 +47,8 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     interactable.Interact();
                     _timeout = timeout;
-                    inputManager.interact = false;
                 }
+                
 
             }
         }
@@ -59,6 +59,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             text.text = "";
         }
+
+        inputManager.interact = false;
     }
 
 }

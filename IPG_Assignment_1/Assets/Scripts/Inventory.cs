@@ -6,14 +6,17 @@ using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Inventory items")]
     public GameObject rake;
     public GameObject fishFood;
     public GameObject steppingStone;
 
     public InputManager inputManager;
+
     private List<GameObject> inventoryItems;
     private GameObject equippedItem;
 
+    [Header("Item switch timeout")]
     public float timeout = 0.2f;
     private float _timeout;
 

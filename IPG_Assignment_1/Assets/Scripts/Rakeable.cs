@@ -8,6 +8,7 @@ public class Rakeable : MonoBehaviour
     private Transform player;
     private GameObject rake;
     private Vector2 stationery = new Vector2(0f, 0f);
+    private Task task;
 
     [Header("Rake task timings")]
     [SerializeField]
@@ -16,6 +17,12 @@ public class Rakeable : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource rakingAudio;
+
+    private void Awake()
+    {
+        task = GetComponent<Task>();   
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -57,9 +64,9 @@ public class Rakeable : MonoBehaviour
             }
 
 
-            if (timeSpentRaking > rakingTimeRequired)
+            if (timeSpentRaking > rakingTimeRequired && !task.isComplete)
             {
-                GetComponent<Task>().isComplete = true;
+                task.Complete();
             }
         }
 

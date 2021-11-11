@@ -35,13 +35,13 @@ public class LanternLight : Interactable
         if (SwitchedOn)
         {
             MeshRenderer.material = OnMat;
+            gameObject.GetComponent<Task>().Complete();
         }
         else
         {
             MeshRenderer.material = OffMat;
         }
 
-        gameObject.GetComponent<Task>().isComplete = SwitchedOn;
     }
 
 }

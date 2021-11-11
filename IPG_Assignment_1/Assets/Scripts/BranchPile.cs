@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BranchPile : Interactable
-{ 
+{
+    public GameObject branches;
+
     public override string GetDescription()
     {
         return "Press [E] to tidy up the branches";
@@ -11,8 +13,9 @@ public class BranchPile : Interactable
     
     public override void Interact()
     {
-        GetComponent<Task>().isComplete = true;
-        gameObject.SetActive(false);  
+        GetComponent<Task>().Complete();
+        branches.SetActive(false);
+        GetComponent<BoxCollider>().enabled = false;
     }
 
 }

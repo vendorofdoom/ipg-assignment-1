@@ -23,16 +23,16 @@ public class KoiFish : Interactable
         {
             if (inventory.IsEquipped(Inventory.InventoryItem.FishFood))
             {
-                return "Press E to feed the fish!";
+                return "Press [E] to feed the fish!";
             }
             else
             {
-                return "I should fed them...";
+                return "Waiting for their breakfast...";
             }
 
         } else
         {
-            return "Happy fish :) don't they get dizzy swimming in circles like that?";
+            return "Don't they get dizzy swimming in circles like that? I should get home and feed myself!";
         }
     }
 
@@ -42,7 +42,7 @@ public class KoiFish : Interactable
         {
             inventory.UseItem(Inventory.InventoryItem.FishFood);
             koiFed = true;
-            GetComponent<Task>().isComplete = true;
+            GetComponent<Task>().Complete();
             startTime = Time.time;
             sprinkleFood = true;
             fishFood.Play();

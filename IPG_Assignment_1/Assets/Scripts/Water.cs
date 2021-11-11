@@ -3,8 +3,6 @@ using TMPro;
 
 public class Water : MonoBehaviour
 {
-    
-
     private GameObject player;
     private CanvasGroup backgroundImage;
     private TextMeshProUGUI message;
@@ -53,13 +51,13 @@ public class Water : MonoBehaviour
         {
             if (elapsedTime <= fadeInTime)
             {
-                message.text = "SPLASH!\nI'd better go dry off...";
+                message.text = "Oops! I better go dry off...";
                 backgroundImage.alpha += Time.deltaTime / fadeInTime;
             }
 
             else
             {
-                player.transform.position = new Vector3(0f, 0f, 0f);
+                player.transform.position = new Vector3(-12f, 0f, -2f);
                 player.GetComponent<CharacterController>().enabled = true;
                 player.GetComponent<PlayerInteraction>().enabled = true;
                 player.GetComponent<StarterAssets.ThirdPersonController>().enabled = true;

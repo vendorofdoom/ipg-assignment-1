@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class RakeCollectible : MonoBehaviour
 {
+    [Header("Tasks")]
     public Task branches1;
     public Task branches2;
     public Task branches3;
 
+    [Header("Reward")]
     public GameObject rake;
 
     private void Update()

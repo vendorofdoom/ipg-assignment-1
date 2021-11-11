@@ -12,10 +12,10 @@ public class Opening : MonoBehaviour
 
     IEnumerator Start()
     {
-        rain.Play(true);
+        rain.Play();
         input.enabled = false;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         text.text = "What a crazy storm last night...";
 
@@ -29,11 +29,7 @@ public class Opening : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        text.text = "...";
-
-        yield return new WaitForSeconds(1f);
-
-        text.text = "I'd better get outside, the koi fish need their breakfast.";
+        text.text = "I should get outside and give the koi fish their breakfast.";
 
         yield return new WaitForSeconds(3f);
 

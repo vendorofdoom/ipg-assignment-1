@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ProgressManager : MonoBehaviour
 {
+    public Home home;
     public int tasksCompleted;
+
+    [SerializeField]
     private int tasksCount;
     private Task[] tasks;
-
-    public Home home;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class ProgressManager : MonoBehaviour
     }
 
 
-    private void CalcProgress()
+    public void CalcProgress()
     {
         tasksCompleted = 0;
 
@@ -37,11 +38,5 @@ public class ProgressManager : MonoBehaviour
         }
 
     }
-
-    private void Update()
-    {
-        CalcProgress();
-    }
-
 
 }

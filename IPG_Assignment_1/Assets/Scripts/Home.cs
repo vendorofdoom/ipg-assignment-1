@@ -4,23 +4,25 @@ using TMPro;
 public class Home : MonoBehaviour
 {
     public BoxCollider door;
-    public TextMeshProUGUI text;
 
     [SerializeField]
     private bool doorLocked = false;
     [SerializeField]
     private bool displayMessage = false;
+    public TextMeshProUGUI text;
 
     [Header("Cutscenes")]
     public Opening opening;
     public Ending ending;
+    public bool playCutscenes = true;
 
     [Header("Audio")]
     public AudioSource doorUnlockedAudio;
+    
 
     private void Awake()
     {
-        opening.enabled = true;
+        if (playCutscenes) opening.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +42,7 @@ public class Home : MonoBehaviour
                 } else
                 {
                     displayMessage = false;
-                    ending.enabled = true; 
+                    if (playCutscenes) ending.enabled = true; 
                 }
             }
 
@@ -51,7 +53,7 @@ public class Home : MonoBehaviour
     {
         if (doorLocked && displayMessage)
         {
-            text.text = "My inner balance is still off... I should get back to the garden and finish what I was doing.";
+            text.text = "My inner balance still feels off... I should get back to the garden and finish what I was doing.";
         }
     }
 

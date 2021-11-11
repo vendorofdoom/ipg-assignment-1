@@ -32,15 +32,15 @@ public class SteppingStone : Interactable
     {
         if (isFixed)
         {
-            return "Nice and stable :)";
+            return "Strong and stable";
         } else
         {
             if (inventory.IsEquipped(Inventory.InventoryItem.SteppingStone))
             {
-                return "Press E to fix the broken stepping stone";
+                return "Press [E] to fix the broken stepping stone";
             } else
             {
-                return "Hm... that doesn't look very stable, maybe there's another stone I can repair it with?";
+                return "Hm... that doesn't look very stable...";
             }
         }
     }
@@ -53,7 +53,7 @@ public class SteppingStone : Interactable
             brokenStone.SetActive(false);
             fixedStone.SetActive(true);
             isFixed = true;
-            GetComponent<Task>().isComplete = true;
+            GetComponent<Task>().Complete();
         }
     }
 

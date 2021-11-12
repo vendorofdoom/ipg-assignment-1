@@ -28971,6 +28971,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1925873226565265913, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
+      propertyPath: JumpTimeout
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925873226565265913, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       propertyPath: SprintSpeed
       value: 8
       objectReference: {fileID: 0}

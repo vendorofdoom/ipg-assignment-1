@@ -15,7 +15,6 @@ public class PlayerInteraction : MonoBehaviour
     public InputManager inputManager;
 
     private Interactable interactable;
-    private bool successfulHit = false;
 
     public float timeout = 0.2f;
     private float _timeout;
@@ -40,7 +39,6 @@ public class PlayerInteraction : MonoBehaviour
             if (interactable != null)
             {
                 text.text = interactable.GetDescription();
-                //successfulHit = true;
 
                 if (inputManager.interact && _timeout <= 0.0f)
                 {
@@ -53,41 +51,6 @@ public class PlayerInteraction : MonoBehaviour
 
         _timeout = Mathf.Clamp(_timeout - Time.deltaTime, -1f, timeout + 1f);
 
-        //if (!successfulHit)
-        //{
-        //    text.text = "";
-        //}
-
         inputManager.interact = false;
-
-        //Vector2 cursorPos = Mouse.current.position.ReadValue();
-
-        //Ray ray = cam.ScreenPointToRay(cursorPos);
-        //RaycastHit hit;
-        //successfulHit = false;
-
-        //if (Physics.Raycast(ray, out hit, interactionDistance, layerMask))
-        //{
-
-        //    interactable = hit.collider.GetComponent<Interactable>();
-        //    if (interactable != null)
-        //    {
-        //        text.text = interactable.GetDescription();
-        //        successfulHit = true;
-
-        //        if (inputManager.interact && _timeout <= 0.0f)
-        //        {
-        //            interactable.Interact();
-        //            _timeout = timeout;
-        //        }
-
-
-        //    }
-        //}
-
-
-
-
     }
-
 }

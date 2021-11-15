@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Input system tutorial: https://youtu.be/m5WsmlEOFiA
+
 public class InputManager : MonoBehaviour
 {
 	[Header("Character Input Values")]

@@ -10525,7 +10525,7 @@ MonoBehaviour:
   inventory: {fileID: 1083836955}
   item: 0
   message: Oh look - a rake! It must have been hiding under all those branches...
-    Press [E] to pickup.
+    Press [E] to pickup. Press [Q] to equip.
 --- !u!136 &668609441
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12846,7 +12846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1083836955}
   item: 1
-  message: Some fish food... flakey goodness! Press [E] to pickup.
+  message: Some fish food... flakey goodness! Press [E] to pickup. Press [Q] to equip.
 --- !u!1001 &964491615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21840,7 +21840,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 41cc2176998503d47a1516278d3cdfde, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25858,7 +25858,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1083836955}
   item: 2
-  message: A big heavy stone... Where did that come from? Press [E] to collect.
+  message: A big heavy stone... Where did that come from? Press [E] to collect. Press
+    [Q] to equip.
 --- !u!82 &1658340039
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29076,7 +29077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8895981196002479095, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       propertyPath: cursorLocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8895981196002479095, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       propertyPath: cursorInputForLook
